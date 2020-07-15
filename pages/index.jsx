@@ -1,10 +1,7 @@
 import React from 'react';
-import { useCurrentUser } from '../lib/hooks';
-import PostEditor from '../components/post/editor';
-import Posts from '../components/post/posts';
+import WindChart from '../components/WindChart';
 
 const IndexPage = () => {
-  const [user] = useCurrentUser();
 
   return (
     <>
@@ -20,22 +17,10 @@ const IndexPage = () => {
         `}
       </style>
       <div style={{ marginBottom: '2rem' }}>
-        <h2>
-          Hello,
-          {' '}
-          {user ? user.name : 'stranger'}
-          !
-        </h2>
-        <p>Have a wonderful day.</p>
+        <h2>Hope it's a Great day to fly!</h2>
       </div>
       <div>
-        <h3>
-          All posts from the Web
-          {' '}
-          <span role="img" aria-label="Earth">🌎</span>
-        </h3>
-        <PostEditor />
-        <Posts />
+        <WindChart numRec={30} />
       </div>
     </>
   );

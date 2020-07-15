@@ -1,16 +1,9 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useCurrentUser } from '../lib/hooks';
 
 export default ({ children }) => {
-  const [user, { mutate }] = useCurrentUser();
-  const handleLogout = async () => {
-    await fetch('/api/auth', {
-      method: 'DELETE',
-    });
-    mutate(null);
-  };
+
   return (
     <>
       <style jsx global>
@@ -49,20 +42,6 @@ export default ({ children }) => {
             justify-content: center;
             align-items: center;
           }
-          input,
-          textarea {
-            font-family: monospace;
-            flex: 1 1 0%;
-            margin-left: 0.5rem;
-            box-shadow: none;
-            width: 100%;
-            color: #000;
-            background-color: transparent;
-            border: 1px solid #d8d8d8;
-            border-radius: 5px;
-            outline: 0px;
-            padding: 10px 25px;
-          }
           button {
             display: block;
             margin-bottom: 0.5rem;
@@ -81,31 +60,11 @@ export default ({ children }) => {
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
           }
           header {
-            border-bottom: 1px solid #d8d8d8;
-          }
-          nav {
-            max-width: 1040px;
-            margin: auto;
-            padding: 1rem 2rem;
-          }
-          nav div {
-            float: right;
-          }
-          nav div a {
-            font-size: 0.9rem;
-            margin-left: 1rem;
-          }
-          nav h1 {
-            font-size: 1rem;
-            color: #444;
-            margin: 0;
-            font-weight: 700;
-            float: left;
-          }
-          nav:after {
-            content: '';
-            clear: both;
-            display: table;
+            border-bottom: 2px solid #004800;
+            color: #fff;
+            background-color: #00b;
+            text-align: center;
+            font-size: 2rem;
           }
           main {
             padding: 1rem;
@@ -122,7 +81,7 @@ export default ({ children }) => {
         `}
       </style>
       <Head>
-        <title>Next.js + MongoDB App</title>
+        <title>GIRC-Wind</title>
         <meta
           key="viewport"
           name="viewport"
@@ -130,48 +89,16 @@ export default ({ children }) => {
         />
         <meta
           name="description"
-          content="nextjs-mongodb-app is a continously developed app built with Next.JS and MongoDB. This project goes further and attempts to integrate top features as seen in real-life apps."
+          content="Graph of collected field wind data"
         />
-        <meta property="og:title" content="Next.js + MongoDB App" />
+        <meta property="og:title" content="GIRC-Wind" />
         <meta
           property="og:description"
-          content="nextjs-mongodb-app is a continously developed app built with Next.JS and MongoDB. This project goes further and attempts to integrate top features as seen in real-life apps."
-        />
-        <meta
-          property="og:image"
-          content="https://repository-images.githubusercontent.com/201392697/5d392300-eef3-11e9-8e20-53310193fbfd"
+          content="Graph of collected field wind data"
         />
       </Head>
       <header>
-        <nav>
-          <Link href="/">
-            <a>
-              <h1>Next.js + MongoDB App</h1>
-            </a>
-          </Link>
-          <div>
-            {!user ? (
-              <>
-                <Link href="/login">
-                  <a>Sign in</a>
-                </Link>
-                <Link href="/signup">
-                  <a>Sign up</a>
-                </Link>
-              </>
-            ) : (
-              <>
-                <Link href="/user/[userId]" as={`/user/${user._id}`}>
-                  <a>Profile</a>
-                </Link>
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a tabIndex={0} role="button" onClick={handleLogout}>
-                  Logout
-                </a>
-              </>
-            )}
-          </div>
-        </nav>
+        GI RC Field Wind Chart
       </header>
 
       <main>{children}</main>
@@ -189,13 +116,13 @@ export default ({ children }) => {
           </span>
           , and a keyboard by
           {' '}
-          <a href="https://hoangvvo.com/">Hoang Vo</a>
+          Hotaman
           .
         </p>
         <p>
           Source code is on
           {' '}
-          <a href="https://github.com/hoangvvo/nextjs-mongodb-app">Github</a>
+          <a href="https://github.com/Hotaman/girc-wind">Github</a>
           .
         </p>
       </footer>
