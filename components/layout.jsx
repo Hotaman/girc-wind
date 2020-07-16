@@ -70,6 +70,7 @@ export default ({ children }) => {
             padding: 1rem;
             max-width: 1040px;
             margin: 0 auto;
+            text-align: center;
           }
           footer {
             text-align: center;

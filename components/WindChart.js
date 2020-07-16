@@ -95,7 +95,13 @@ const WindChart = ({ numRec }) => {
     return (
         <div style={{ textAlign: "center" }}>
             Select Display Period {" "}
-            <select defaultValue={30} id="numDocs" name="numDocs" onChange={setHours}>
+            <select
+                defaultValue={30}
+                value={numDocs}
+                id="numDocs"
+                name="numDocs"
+                onChange={setHours}
+            >
                 <option value="30">1 Hour</option>
                 <option value="60">2 Hours</option>
                 <option value="90">3 Hours</option>
