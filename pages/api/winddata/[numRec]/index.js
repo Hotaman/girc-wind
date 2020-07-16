@@ -6,7 +6,7 @@ const handler = nextConnect();
 handler.use(middleware);
 
 handler.get(async (req, res) => {
-    console.log(`In API handler - recs: ${req.query.numRec}`);
+    //console.log(`In API handler - recs: ${req.query.numRec}`);
     if (req.dbClient && req.dbClient.isConnected()) {
         const windData = await req.db
             .collection("climate")
