@@ -79,9 +79,9 @@ const ShowLines = ({ windData }) => {
 
 const WindChart = ({ numRec }) => {
     const [ numDocs, setNumDocs ] = useState(30);
-    console.log(`The requested rec #: ${numRec}`);
+    //console.log(`The requested rec #: ${numRec}`);
     const { data, error } = useSWR(`/api/winddata/${numDocs}`, fetcher);
-    console.log(`the error: ${error}`, error);
+    //console.log(`the error: ${error}`, error);
     if (error) return <div>failed to load data!</div>;
     if (!data) return <div>loading data...</div>;
     //console.log("Here is the returned data:");
